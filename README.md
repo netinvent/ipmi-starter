@@ -1,4 +1,4 @@
-# IMM / KVM / IRMC / IDRAC / ILO java helper
+# IPMI / IMM / KVM / IRMC / IDRAC / ILO java helper
 
 Most server hardware manufacturers have been using java for remote server access and video redirection.
 The problem is that most elder servers without any updates work only with elder java versions, because of security issues (non trusted URLs, elder cihpers, elder security protocols, expired certificates).
@@ -9,7 +9,7 @@ The Java version also comes with java web starter (javaws) Iced-tea package, sin
 
 # Usage
 
-Unzip the archive you downloaded from the release page, and launch javaws.cmd with the JNLP file you downloaded on the remote access page, eg:
+Unzip the archive you downloaded from the (release page)[https://github.com/netinvent/ipmi-starter/releases], and launch javaws.cmd with the JNLP file you downloaded on the remote access page, eg:
 ```
 javaws c:\Users\MyUser\Downloads\viewer.jnlp
 ```
