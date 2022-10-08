@@ -1,4 +1,4 @@
-# IPMI / IMM / KVM / IRMC / IDRAC / ILO java helper
+# IPMI / IMM / KVM / IRMC / IDRAC / ILO java starter
 
 Most server hardware manufacturers have been using java for remote server access and video redirection.
 The problem is that most elder servers without any updates work only with elder java versions, because of security issues (non trusted URLs, elder cihpers, elder security protocols, expired certificates).
