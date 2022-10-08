@@ -1,6 +1,6 @@
 ::@echo off
 
-:: Basic javaws loader for IRMC / KVM / iLo / IMM etc that use have sh*tty support and don't work with elder java versions
+:: Basic javaws (jnlp file) loader for IPMI / IRMC / KVM / iLo / IMM etc that use have sh*tty support and only work with elder java versions
 :: Usage: javaws "c:\path\to\your\viewer.jnlp" [version]
 
 :: 2022-10-07: Initial version
@@ -8,6 +8,8 @@
 set curdir=%~dp0
 set curdir=%curdir:~0,-1%
 
+:: Log file is same as script name
+set LOG_FILE=%curdir%\%~n0.log
 
 :: JRE / JDK & IcedTea sources
 
@@ -53,10 +55,33 @@ GOTO JAVAWS
 
 :JAVAWS
 :: If no file argument was given, ask for the path for the jnlp file here
-IF NOT %1=="" SET JNLP_PATH=%1
-IF %1=="" SET /P JNLP_PATH=Please give the full path to your jnlp file: 
+:: We'll use ""%1 instead of "%1" since %1 might already be doublequoted, resulting in """". I hate batch.
+IF NOT ""%1=="" SET JNLP_PATH=%1
+IF ""%1=="" SET /P JNLP_PATH=Please give the full path to your jnlp file: 
 
 :: Launching javaws with given jnlp file argument
 :: We don't specify javaws.exe or .bat since it depends on java implementation
 :: -verbose is required for java 1.7 to show it's security warning
+call:Log "Launching '%JAVAWS_DIR%\javaws' with parameters -verbose %JNLP_PATH%"
 "%JAVAWS_DIR%\javaws" -verbose %JNLP_PATH%
+GOTO END
+
+:GetDateStamp
+for /f "delims=" %%a in ('wmic OS Get localdatetime  ^| find "."') do set "dt=%%a"
+set "YYYY=%dt:~0,4%"
+set "MM=%dt:~4,2%"
+set "DD=%dt:~6,2%"
+set "HH=%dt:~8,2%"
+set "Min=%dt:~10,2%"
+set "Sec=%dt:~12,2%"
+set datestamp=%YYYY%%MM%%DD%
+set timestamp=%HH%%Min%%Sec%
+GOTO:EOF
+
+:Log
+call:GetDateStamp
+echo %YYYY%/%MM%/%DD% - %HH%:%Min%:%Sec% %~1 >> "%LOG_FILE%"
+echo %~1
+GOTO:EOF
+
+:END
