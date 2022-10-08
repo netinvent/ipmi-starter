@@ -14,6 +14,11 @@ Unzip the archive you downloaded from the [release page](https://github.com/neti
 javaws c:\Users\MyUser\Downloads\viewer.jnlp
 ```
 
+# Example output
+
+![image](images/asus_ikvm8.png)
+![image](images/hp_rac.png)
+
 # What has been tested ?
 
 | Remote Access implementation | Version    | Release year | JRE 1.6u45 | JRE 1.7u21 | JDK 1.8u352b01 |
@@ -22,12 +27,16 @@ javaws c:\Users\MyUser\Downloads\viewer.jnlp
 | ASUS P10S-I iKVM             | FW 2.05    | 2018         | Too old    | Yes        | Yes            |
 | Fujitsu RX300 S7 IDRAC       | FW 6.65    | ?            | ?          | ?          | ?              |
 
-# Known Java quirks
 
-- Some JRE (> 1.7u21) will not execute an app once it's certificate is expired, see https://stackoverflow.com/a/33433821/2635443
-- When downloading a non portable JRE, you can unzip it and use it as portable JRE. In order to do so, you'll need to unpack the jre\lib\*.pack files into jar files, see https://stackoverflow.com/a/25384578/2635443
-  - In the root of the JRE directory, execute the following:
-  - `for /r %x in (*.pack) do .\bin\unpack200.exe -r "%x" "%~dx%~px%~nx.jar"`
+
+# Known issues
+
+- Some of the JNLP files contain a very short living password to connect to the remote console. You're supposed to launch the file as soon as you downloaded it. If you use a JNLP file later, you might face a "login failed" message because of the expired password.
+- Most JNLP files should work with bundled JDK1.8 since it's security requirements are lowered, nevertheless, if you want to add your own JRE 1.6 versions:
+   - JRE > 1.7u21 will not execute an app once it's certificate is expired, see (this post)[https://stackoverflow.com/a/33433821/2635443].
+   - When downloading a non portable JRE (exe format), you can unzip it and use it as portable JRE. In order to do so, you'll need to unpack the jre\lib\*.pack files into jar files, see https://stackoverflow.com/a/25384578/2635443
+      - In the root of the JRE directory, execute the following:
+      - `for /r %x in (*.pack) do .\bin\unpack200.exe -r "%x" "%~dx%~px%~nx.jar"`
 
 # Advanced usage
 
@@ -42,7 +51,7 @@ javaws c:\Users\MyUser\Downloads\viewer.jnlp jre16
 # Java security settings
 
 The security settings are stored in `jre\lib\security\java.security` file.
-The following variables have been adjusted in the bundled JRE
+The following variables have been adjusted in the bundled JDK
 ```
 jdk.disabled.namedCurves = None
 jdk.certpath.disabledAlgorithms=None
