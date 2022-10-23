@@ -68,5 +68,5 @@ You'd basically need an old internet navigator that supports NPAPI plugin interf
 I've also investigated running those applets via **appletviewer** without much success.
 Some java guru would be welcome to give some adivce about appletviewer.
 
-A good alternative solution is to use a [java to html5 brdige](https://leaningtech.com/cheerpj-applet-runner/) that works with recent browsers, and allows to run those applets (although for the old hp procurve switches, it's really simpler to use CLI admin).
+A good alternative solution is to use a [java to html5 bridge](https://leaningtech.com/cheerpj-applet-runner/) that works with recent browsers, and allows to run those applets (although for the old hp procurve switches, it's really simpler to use CLI admin).
 
