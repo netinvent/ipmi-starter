@@ -25,9 +25,7 @@ javaws c:\Users\MyUser\Downloads\viewer.jnlp
 |------------------------------|------------|--------------|------------|------------|----------------| 
 | HP Proliant Gen7 RAC card    | FW 1.4     | 2013         | Yes        | Yes        | Yes            |
 | ASUS P10S-I iKVM             | FW 2.05    | 2018         | Too old    | Yes        | Yes            |
-| Fujitsu RX300 S7 IDRAC       | FW 6.65    | ?            | ?          | ?          | ?              |
-
-
+| Fujitsu RX300 S7 IDRAC       | FW 6.65    | 2013         | Yes        | Yes        | Yes            |
 
 # Known issues
 
@@ -60,3 +58,15 @@ jdk.jar.disabledAlgorithms=None
 jdk.tls.disabledAlgorithms=None
 jdk.tls.legacyAlgorithms=None
 ```
+
+
+# How about java applets on old equipments ?
+
+Some equipment (example old hp procurve switches) use java applets that aren't supported anymore since java 1.7.
+You'd basically need an old internet navigator that supports NPAPI plugin interface, bundled with an old java JRE to support those.
+
+I've also investigated running those applets via **appletviewer** without much success.
+Some java guru would be welcome to give some adivce about appletviewer.
+
+A good alternative solution is to use a [java to html5 brdige](https://leaningtech.com/cheerpj-applet-runner/) that works with recent browsers, and allows to run those applets (although for the old hp procurve switches, it's really simpler to use CLI admin).
+
