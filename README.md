@@ -21,11 +21,12 @@ javaws c:\Users\MyUser\Downloads\viewer.jnlp
 
 # What has been tested ?
 
-| Remote Access implementation | Version    | Release year | JRE 1.6u45 | JRE 1.7u21 | JDK 1.8u352b01 |
-|------------------------------|------------|--------------|------------|------------|----------------| 
-| HP Proliant Gen7 RAC card    | FW 1.4     | 2013         | Yes        | Yes        | Yes            |
-| ASUS P10S-I iKVM             | FW 2.05    | 2018         | Too old    | Yes        | Yes            |
-| Fujitsu RX300 S7 IDRAC       | FW 6.65    | 2013         | Yes        | Yes        | Yes            |
+| Remote Access implementation | Version    | Release year | Works with shipped version  JDK 1.8u352b01 | JRE 1.6u45 | JRE 1.7u21 |
+|------------------------------|------------|--------------|--------------------------------------------|------------|------------|
+| HP Proliant Gen7 RAC card    | FW 1.4     | 2013         | Yes                                        | Yes        | Yes        |
+| ASUS P10S-I iKVM             | FW 2.05    | 2018         | Yes                                        | Too old    | Yes        |
+| Fujitsu RX300 S7 IDRAC       | FW 6.65    | 2013         | Yes                                        | Yes        | Yes        |
+| QCT D51PH-1ULH (AST2400)     | ?          | 2015         | Yes                                        | Not tested | No tested  |
 
 # Known issues
 
