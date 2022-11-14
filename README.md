@@ -26,7 +26,7 @@ javaws c:\Users\MyUser\Downloads\viewer.jnlp
 | HP Proliant Gen7 RAC card    | FW 1.4     | 2013         | Yes                                        | Yes        | Yes        |
 | ASUS P10S-I iKVM             | FW 2.05    | 2018         | Yes                                        | Too old    | Yes        |
 | Fujitsu RX300 S7 IDRAC       | FW 6.65    | 2013         | Yes                                        | Yes        | Yes        |
-| QCT D51PH-1ULH (AST2400)     | ?          | 2015         | Yes                                        | Not tested | No tested  |
+| QCT D51PH-1ULH (AST2400)     | FW 3.16.00 | 2015         | Yes                                        | Not tested | No tested  |
 
 # Known issues
 
