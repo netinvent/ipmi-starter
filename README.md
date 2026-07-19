@@ -34,6 +34,7 @@ With v0.2
 | Remote Access implementation | Version    | Release year | Works with shipped version  JDK 1.8u292b10 | JRE 1.6u45 | JRE 1.7u21 |
 |------------------------------|------------|--------------|--------------------------------------------|------------|------------|
 | Supermicro X11SCE-F          | FW 01.74.19| 2018         | Yes                                        | Not tested | No tested  |
+| Supermicro X12SPO-NTF        | FW 01.12.01| 2026         | Yes                                        | Not tested | No tested  |
 
 # Known issues
 
