@@ -1,6 +1,6 @@
 # IPMI / IMM / KVM / IRMC / IDRAC / ILO java starter
 
-Most server hardware manufacturers have been using java for remote server access and video redirection.
+Most server hardware manufacturers have been using java for remote server access and video redirection in the past.
 The problem is that most elder servers without any updates work only with elder java versions, because of security issues (non trusted URLs, elder cihpers, elder security protocols, expired certificates).
 
 This repo is a simple script that allows to use different java versions, and has a bundled (non Oracle) Java version which has been modified to allow weak security protocols and ciphers (SSL3.0, TLS1.0...).
@@ -9,7 +9,7 @@ The Java version also comes with java web starter (javaws) Iced-tea package, sin
 
 # Usage
 
-Unzip the archive you downloaded from the [release page](https://github.com/netinvent/ipmi-starter/releases), and launch javaws.cmd with the JNLP file you downloaded on the remote access page, eg:
+Unzip the archive you downloaded from the [release page](https://github.com/netinvent/ipmi-starter/releases), and launch javaws.cmd as administrator with the JNLP file you downloaded on the remote access page, eg:
 ```
 javaws c:\Users\MyUser\Downloads\viewer.jnlp
 ```
@@ -28,10 +28,11 @@ javaws c:\Users\MyUser\Downloads\viewer.jnlp
 | Fujitsu RX300 S7 IDRAC       | FW 6.65    | 2013         | Yes                                        | Yes        | Yes        |
 | QCT D51PH-1ULH (AST2400)     | FW 3.16.00 | 2015         | Yes                                        | Not tested | No tested  |
 | Supermicro H8QG6             | FW 3.02    | 2014         | Yes                                        | Not tested | No tested  |
+| Supermicro X11SCE-F          | FW 01.74.19| 2018         | Yes                                        | Not tested | No tested  |
 
 # Known issues
 
-- Some of the JNLP files contain a very short living password to connect to the remote console. You're supposed to launch the file as soon as you downloaded it. If you use a JNLP file later, you might face a "login failed" message because of the expired password.
+- Some of the JNLP files contain a very short living password to connect to the remote console. You're supposed to launch the file as soon as you downloaded it. If you use a JNLP file later, you might face a `login failed` / `authentication failed` message because of the expired password.
 - Most JNLP files should work with bundled JDK1.8 since it's security requirements are lowered, nevertheless, if you want to add your own JRE 1.6 versions:
    - JRE > 1.7u21 will not execute an app once it's certificate is expired, see (this post)[https://stackoverflow.com/a/33433821/2635443].
    - When downloading a non portable JRE (exe format), you can unzip it and use it as portable JRE. In order to do so, you'll need to unpack the jre\lib\*.pack files into jar files, see https://stackoverflow.com/a/25384578/2635443

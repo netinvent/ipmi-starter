@@ -3,7 +3,10 @@
 :: Basic javaws (jnlp file) loader for IPMI / IRMC / KVM / iLo / IMM etc that use have sh*tty support and only work with elder java versions
 :: Usage: javaws "c:\path\to\your\viewer.jnlp" [version]
 
+:: 2026-07-17: Updated icedtea and OpenJDK, and made sure we run as admin since Windows 11 will not allow javaws to run properly else
 :: 2022-10-07: Initial version
+
+net.exe session 1>NUL 2>NUL || (Echo This script requires elevated rights. & Exit /b 1)
 
 set curdir=%~dp0
 set curdir=%curdir:~0,-1%
@@ -14,10 +17,15 @@ set LOG_FILE=%curdir%\%~n0.log
 :: JRE / JDK & IcedTea sources
 
 
-:: JavaWS implementation, download at https://github.com/AdoptOpenJDK/IcedTea-Web/releases/download/icedtea-web-1.8.8/icedtea-web-1.8.8.portable.bin.zip
+:: JavaWS implementation, download at https://github.com/AdoptOpenJDK/IcedTea-Web/releases/download/icedtea-web-1.8.8/icedtea-web-1.8.8.win.bin.zip
 :: Icedtea needs to be unzipped into .\icedtea-web-image
-SET ICEDTEA=icedtea-web-image
+SET ICEDTEA=%curdir%\icedtea-web-image
 
+:: OpenJDK 1.8, download at https://github.com/AdoptOpenJDK/openjdk8-binaries/releases/download/jdk8u292-b10_openj9-0.26.0/OpenJDK8U-jre_x64_windows_openj9_8u292b10_openj9-0.26.0.
+:: Needs to be unzipped into .\jdk8u292-b10-jre
+SET JDK18=jdk8u292-b10-jre
+
+:: Optional downloads
 :: Java JRE 1.6, see Oracle archives at https://www.oracle.com/java/technologies/downloads/archive/
 :: Needed file is with MD5 checksum jre-6u45-windows-i586.zip with MD5 checksum BADF6A8A2A4E8D6D8A9354CCCE29FC50
 SET JRE16=jre1.6.0_45
@@ -26,10 +34,6 @@ SET JRE16=jre1.6.0_45
 :: Needed file is jre-7u80-windows-i586.exe with MD5 checksum f2fd417b6d5c7ffc501c7632cc811c3e, see https://www.oracle.com/webfolder/s/digest/7u80checksum.html
 :: When using an exe file instead of a zip file, one needs to transform the pack files in the lib directory to jar files, see jre_exe_to_portable.cmd
 SET JRE17=jre1.7.0_21
-
-:: OpenJDK 1.8, download at https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u345-b01/OpenJDK8U-jdk_x86-32_windows_hotspot_8u345b01.zip (or https://adoptium.net/download)
-SET JDK18=jdk8u345-b01
-
 
 :MENU
 IF /I "%2"=="JRE16" GOTO JAVA16
@@ -49,6 +53,7 @@ GOTO JAVAWS
 :JDK18
 SET JAVA_HOME=%curdir%\%JDK18%
 SET JAVAWS_DIR=%ICEDTEA%\bin
+set PATH=%ICEDTEA%\bin;%PATH%
 GOTO JAVAWS
 
 
