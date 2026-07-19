@@ -21,6 +21,7 @@ javaws c:\Users\MyUser\Downloads\viewer.jnlp
 
 # What has been tested ?
 
+With v0.1
 | Remote Access implementation | Version    | Release year | Works with shipped version  JDK 1.8u352b01 | JRE 1.6u45 | JRE 1.7u21 |
 |------------------------------|------------|--------------|--------------------------------------------|------------|------------|
 | HP Proliant Gen7 RAC card    | FW 1.4     | 2013         | Yes                                        | Yes        | Yes        |
@@ -28,6 +29,10 @@ javaws c:\Users\MyUser\Downloads\viewer.jnlp
 | Fujitsu RX300 S7 IDRAC       | FW 6.65    | 2013         | Yes                                        | Yes        | Yes        |
 | QCT D51PH-1ULH (AST2400)     | FW 3.16.00 | 2015         | Yes                                        | Not tested | No tested  |
 | Supermicro H8QG6             | FW 3.02    | 2014         | Yes                                        | Not tested | No tested  |
+
+With v0.2
+| Remote Access implementation | Version    | Release year | Works with shipped version  JDK 1.8u292b10 | JRE 1.6u45 | JRE 1.7u21 |
+|------------------------------|------------|--------------|--------------------------------------------|------------|------------|
 | Supermicro X11SCE-F          | FW 01.74.19| 2018         | Yes                                        | Not tested | No tested  |
 
 # Known issues
